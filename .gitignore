@@ -1,0 +1,6 @@
+.Rproj.user
+*.csv
+*.db
+*.sqlite
+*.xlsx
+*.html
