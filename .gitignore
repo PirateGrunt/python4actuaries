@@ -4,3 +4,5 @@
 *.sqlite
 *.xlsx
 *.html
+!pres.html
+.ipynb_checkpoints/
