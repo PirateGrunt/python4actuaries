@@ -53,7 +53,7 @@ TODO:
 
 ## Similarities between R and Python
 
-* FLOSS
+* FLOSS - Free, Libre, Open Source Software
 * Wide support (take that, Julia!)
 * Interpreted, REPL
 * Rich package ecosystem
@@ -65,18 +65,6 @@ TODO:
 ## How does it compare with R?
 
 <div class='left'>
-Python ...
-
-* is general purpose
-* has easy and consistent support for OOP
-* vectors are available in `numpy`
-* great exception handling
-* not much actuarial focus
-* lots of IDE choices, no consensus
-* scikit-learn!
-</div>
-
-<div class='right'>
 R ...
 
 * loves statistics
@@ -88,9 +76,34 @@ R ...
 * lacks consensus around machine learning - H2O, caret, ROCR?
 </div>
 
+<div class='right'>
+Python ...
+
+* is general purpose
+* has easy and consistent support for OOP
+* vectors are available in `numpy`
+* great exception handling
+* not much actuarial focus
+* no consensus on a FLOSS IDE
+* scikit-learn!
+</div>
+
 ## Compare with Excel?
 
-TODO
+<div class='left'>
+Excel ...
+
+* Closed source
+* Data is visible, but logic is hidden
+* 
+</div>
+
+<div class='right'>
+Python ...
+
+* FLOSS
+* Logic is visible, data is abstract
+</div>
 
 # How can I incorporate Python into my workflow?
 
