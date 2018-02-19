@@ -1,0 +1,39 @@
+.reveal section h1,h2 {
+  font-size: 1.25em;
+}
+
+.reveal section p {
+  text-align: left;
+}
+
+.reveal section img {
+  background:none;
+  border:none;
+  box-shadow:none;
+}
+
+.reveal .left {
+  font-size: 67%;
+  left:-8.33%;
+  float: left;
+  width:48%;
+}
+
+.reveal .right {
+  font-size: 67%;
+  left:31.25%;
+  float: right;
+  width:48%;
+}
+
+.reveal .slide-background.present {
+    background-image: url(../images/actex.jpg), url(../images/PIRATEGRUNT.jpg);
+    background-size: 300px, 175px;
+    background-repeat: no-repeat;
+    background-position: bottom left, bottom center;
+    transition: none;
+}
+
+.red {
+  color: red;
+}
