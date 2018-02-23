@@ -1,8 +1,8 @@
 ---
 title: "Introduction to Python for Actuaries"
-author: [John Bogaardt, Brian A. Fannin ACAS CSPA]
+author: [John Bogaardt FCAS MAAA, Brian A. Fannin ACAS CSPA]
 date: March 20, 2018
-output: 
+output:
   revealjs::revealjs_presentation:
     css: ./css/revealOpts.css
     center: no
@@ -10,7 +10,7 @@ output:
     transition: slide
 ---
 
-# What is Python? 
+# What is Python?
 
 ## What is Python?
 
@@ -46,7 +46,7 @@ Python is a programming language invented by ...
 
 ## The ecosystem
 
-TODO: 
+TODO:
 
 * stack-overflow questions
 * Events
@@ -68,7 +68,7 @@ TODO:
 R ...
 
 * loves statistics
-* hasn't really settled on OOp
+* hasn't really settled on OOP
 * vector support out of the box
 * does anyone really use `try()`?
 * has some actuarial packages
@@ -95,7 +95,7 @@ Excel ...
 
 * Closed source
 * Data is visible, but logic is hidden
-* 
+*
 </div>
 
 <div class='right'>
@@ -116,7 +116,10 @@ Python ...
 
 * numpy
 * pandas
-* 
+* statsmodels
+* matplotlib
+* scikit-learn
+* beautifulsoup
 
 ## Python database packages ?
 
@@ -137,6 +140,7 @@ TODO: A word about Jupyter
     * Data transforms
     * Training, test, scoring
     * Pipelines to manage workflow
+    * GridSearch for model tuning
 
 ## But what algorithms does it support?
 
@@ -154,7 +158,7 @@ linear_regression.fit(X_train, y_train)
 r_square = linear_regression.score(X_test,y_test)
 
 print('Model R_Square on holdout: ' + str(round(r_square,2)))
-coef = pd.DataFrame(np.array([boston['feature_names'], 
+coef = pd.DataFrame(np.array([boston['feature_names'],
                               linear_regression.coef_.round(4)])).T
 coef.columns=(['Feature','Coefficient'])
 coef
@@ -171,7 +175,7 @@ from sklearn.model_selection import train_test_split
 boston = load_boston()
 
 X_train, X_test, y_train, y_test = \
-    train_test_split(boston['data'], boston['target'], 
+    train_test_split(boston['data'], boston['target'],
                      test_size=0.33, random_state=42)
 ```
 
@@ -183,8 +187,8 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.tree import DecisionTreeRegressor
 
 techniques = [LinearRegression(), Ridge(max_iter=100000),  
-                 Lasso(max_iter=100000), ElasticNet(max_iter=100000), 
-                 RandomForestRegressor(random_state=42), 
+                 Lasso(max_iter=100000), ElasticNet(max_iter=100000),
+                 RandomForestRegressor(random_state=42),
                  GradientBoostingRegressor(random_state=42),
                  DecisionTreeRegressor(random_state=42)]
 model_names = [type(model).__name__ for model in linear_models]
@@ -199,9 +203,39 @@ results
 
 ## Estimators
 
+* Estimators are the building block of scikit-learn.  Almost everything is an estimator.
+* All estimators have fit() and predict() methods.
+* Supervised techniques generally have a score() method as well.
+* Some special estimators called transformers have a transform() method
+
 ## Transformers
+* In addition to regressors, classifiers, or clustering techniques, scikit-learn includes transformers.
+* These are used to generate new features, clean data, and extract information from your datasets.
+* Transformers are estimators too and have fit() methods Transformers utilize the transform() method to 'transform' new data.
+
+## Pipelines
+Pipelines facilitate Machine Learning workflow.
+Pipelines are estimators too.
+Each step in a pipeline must be a transformer except for the final step.
+
+![pipeline image](images/pipeline.png)
+
+
+```
+from sklearn.pipeline import Pipeline
+
+poly = PolynomialFeatures(2)
+lasso = lm.Lasso(max_iter=100000)
+
+pipe = Pipeline(steps=[('poly', poly), ('lasso', lasso)])
+pipe.fit(X_train, y_train)
+
+print('A pipeline for our Lasso model produces a holdout score of ' \
+      + str(round(pipe.score(X_test, y_test),2)) + '.')
+```
 
 ## Grid Search
+* Explore performance of Pipeline across a predefined parameter search space while maintaining separability between training and test sets
 
 ```
 from sklearn.model_selection import GridSearchCV
@@ -222,20 +256,6 @@ print('Optimal parameter set produces a holdout score of ' + str(holdout_score) 
 pd.DataFrame(optimized_pipeline.best_params_,index=['Value']).T
 ```
 
-## Pipelines
-
-```
-from sklearn.pipeline import Pipeline
-
-poly = PolynomialFeatures(2)
-lasso = lm.Lasso(max_iter=100000)
-
-pipe = Pipeline(steps=[('poly', poly), ('lasso', lasso)])
-pipe.fit(X_train, y_train)
-
-print('A pipeline for our Lasso model produces a holdout score of ' \
-      + str(round(pipe.score(X_test, y_test),2)) + '.')
-```
 
 # How about an example?
 
@@ -263,7 +283,7 @@ TODO: Talk about the data here
 * https://www.python.org/
 * https://www.python.org/dev/peps/pep-0020/
 
-<!-- 
+<!--
 Section 1 - 20 minutes
 Section 2 - 20 minutes
 Section 3 - 30 minutes
@@ -272,4 +292,3 @@ Q & A - 15 minutes
 -->
 
 <!-- 20 minutes -->
-
