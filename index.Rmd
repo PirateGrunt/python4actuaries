@@ -208,7 +208,7 @@ Python ...
 ```{r}
 knitr::include_graphics('images/jupyter.png')
 ```
-</div
+</div>
 
 <div class='right'>
 * Framework for interactive use of programming languages
