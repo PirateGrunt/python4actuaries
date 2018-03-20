@@ -10,6 +10,14 @@ output:
     transition: slide
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE
+  , out.height = '500px'
+)
+```
+
+
 # What is Python?
 
 ## What is Python?
@@ -18,7 +26,9 @@ Python is a programming language invented by ...
 
 ## ... this guy
 
-![guido von rossum image](images/guido_von_rossum.jpg)
+```{r out.height='600px'}
+knitr::include_graphics('images/guido_von_rossum.jpg')
+```
 
 ##
 
@@ -26,9 +36,21 @@ Python is a programming language invented by ...
 
 ## ... he was into Monty Python when he wrote it
 
-![monty python image](images/monty_python.jpg)
+```{r}
+knitr::include_graphics('images/monty_python.jpg')
+```
 
-## Zen of Python
+## What can it do?
+
+* Interpreted program, like R or VBA
+* Runs on any OS
+* Comes standard on Mac and Linux
+* General programming
+* Access the file system
+
+## How does it do it?
+
+The Zen of Python
 
 * Beautiful is better than ugly.
 * Explicit is better than implicit.
@@ -36,6 +58,9 @@ Python is a programming language invented by ...
 * Complex is better than complicated.
 * Flat is better than nested.
 * Sparse is better than dense.
+
+## More zen
+
 * Readability counts.
 * Special cases aren't special enough to break the rules.
 * Although practicality beats purity.
@@ -44,12 +69,72 @@ Python is a programming language invented by ...
 * In the face of ambiguity, refuse the temptation to guess.
 * There should be one-- and preferably only one --obvious way to do it.
 
-## The ecosystem
+# What else does it do?
 
-TODO:
+## Analytic data
 
-* stack-overflow questions
-* Events
+
+<div class='left'>
+```{r}
+knitr::include_graphics('images/numpy.png')
+```
+</div>
+
+<div class='right'>
+```{r}
+knitr::include_graphics('images/pandas.png')
+```
+</div>
+
+## Visualization
+
+<div class='left'>
+```{r}
+knitr::include_graphics('images/matplotlib.png')
+```
+</div>
+
+<div class='right'>
+```{r }
+knitr::include_graphics('images/plotly.png')
+```
+</div>
+
+## Data from the web
+
+<div class='left'>
+```{r out.width='500px', out.height='450px'}
+knitr::include_graphics('images/beautiful_soup.png')
+```
+</div>
+
+<div class='right'>
+```{r out.width='500px', out.height='450px'}
+knitr::include_graphics('images/requests.png')
+```
+</div>
+
+## Other cool web stuff
+
+```{r out.height='600px'}
+knitr::include_graphics('images/django.png')
+```
+
+## Data science
+
+<div class='left'>
+```{r}
+knitr::include_graphics('images/statsmodels.png')
+```
+</div>
+
+<div class='right'>
+```{r}
+knitr::include_graphics('images/scikit-learn.png')
+```
+</div>
+
+# How can I incorporate Python into my workflow?
 
 ## Similarities between R and Python
 
@@ -93,9 +178,9 @@ Python ...
 <div class='left'>
 Excel ...
 
-* Closed source
+* Closed source, paid commercial license
 * Data is visible, but logic is hidden
-*
+* Great for camera-ready output
 </div>
 
 <div class='right'>
@@ -103,31 +188,20 @@ Python ...
 
 * FLOSS
 * Logic is visible, data is abstract
+* A bit more work to document output
 </div>
-
-# How can I incorporate Python into my workflow?
 
 ## Practicalities
 
-* Editor?
+* Integrated Development Environment (IDE)
 * Version 2 or 3?
-
-## Some of the popular packages?
-
-* numpy
-* pandas
-* statsmodels
-* matplotlib
-* scikit-learn
-* beautifulsoup
-
-## Python database packages ?
+* Sharing your work
 
 ## Jupyter
 
-TODO: A word about Jupyter
-
-<!-- ## Use Excel only to communicate with a database -->
+```{r}
+knitr::include_graphics('images/jupyter.png')
+```
 
 # Intro scikit learn
 
@@ -146,132 +220,39 @@ TODO: A word about Jupyter
 
 ![algorithms cheat sheet](images/algorithm_cheat_sheet.png)
 
-## She fits, she scores!
-
-```
-from sklearn.linear_model as LinearRegression()
-
-linear_regression = LinearRegression()
-
-linear_regression.fit(X_train, y_train)
-
-r_square = linear_regression.score(X_test,y_test)
-
-print('Model R_Square on holdout: ' + str(round(r_square,2)))
-coef = pd.DataFrame(np.array([boston['feature_names'],
-                              linear_regression.coef_.round(4)])).T
-coef.columns=(['Feature','Coefficient'])
-coef
-```
-
-## Cross validation? Don't mind if I do.
-
-```
-import numpy as np
-import pandas as pd
-from sklearn.datasets import load_boston
-from sklearn.model_selection import train_test_split
-
-boston = load_boston()
-
-X_train, X_test, y_train, y_test = \
-    train_test_split(boston['data'], boston['target'],
-                     test_size=0.33, random_state=42)
-```
-
-## Standardized across algorithms
-
-```
-from sklearn.linear_model import Ridge, Lasso, ElasticNet
-from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
-from sklearn.tree import DecisionTreeRegressor
-
-techniques = [LinearRegression(), Ridge(max_iter=100000),  
-                 Lasso(max_iter=100000), ElasticNet(max_iter=100000),
-                 RandomForestRegressor(random_state=42),
-                 GradientBoostingRegressor(random_state=42),
-                 DecisionTreeRegressor(random_state=42)]
-model_names = [type(model).__name__ for model in linear_models]
-
-fitted_models = [model.fit(X_train, y_train) for model in techniques]
-
-model_r2 = [model.score(X_test,y_test) for model in fitted_models]
-
-results = pd.DataFrame([model_names, model_r2], index=['Model','R2 Initial']).T
-results
-```
-
 ## Estimators
 
 * Estimators are the building block of scikit-learn.  Almost everything is an estimator.
 * All estimators have fit() and predict() methods.
 * Supervised techniques generally have a score() method as well.
-* Some special estimators called transformers have a transform() method
-
-## Transformers
-* In addition to regressors, classifiers, or clustering techniques, scikit-learn includes transformers.
-* These are used to generate new features, clean data, and extract information from your datasets.
-* Transformers are estimators too and have fit() methods Transformers utilize the transform() method to 'transform' new data.
+* Some special estimators have a transform() method to pre-process data.
+    * Generate new features
+    * Clean data
+    * Other pre-processing
 
 ## Pipelines
-Pipelines facilitate Machine Learning workflow.
+
+Pipelines facilitate workflow.
 Pipelines are estimators too.
 Each step in a pipeline must be a transformer except for the final step.
 
 ![pipeline image](images/pipeline.png)
 
-
-```
-from sklearn.pipeline import Pipeline
-
-poly = PolynomialFeatures(2)
-lasso = lm.Lasso(max_iter=100000)
-
-pipe = Pipeline(steps=[('poly', poly), ('lasso', lasso)])
-pipe.fit(X_train, y_train)
-
-print('A pipeline for our Lasso model produces a holdout score of ' \
-      + str(round(pipe.score(X_test, y_test),2)) + '.')
-```
-
 ## Grid Search
+
 * Explore performance of Pipeline across a predefined parameter search space while maintaining separability between training and test sets
 
-```
-from sklearn.model_selection import GridSearchCV
-dtree = DecisionTreeRegressor(random_state=42)
-pipe = Pipeline(steps=[('poly', poly), ('dtree', dtree)])
-
-param_grid = dict(dtree__criterion =['mse','friedman_mse'],
-                  dtree__max_depth = [25, 50, 75, 100],
-             dtree__min_samples_leaf =[2, 3, 5, 10],
-             dtree__min_samples_split = [5,10,20],
-             poly__degree=[1,2])
-
-optimized_pipeline = GridSearchCV(pipe, param_grid, cv=5, refit=True)
-optimized_pipeline.fit(X_train, y_train)
-holdout_score = round(optimized_pipeline.score(X_test,y_test),2)
-
-print('Optimal parameter set produces a holdout score of ' + str(holdout_score) + '.')
-pd.DataFrame(optimized_pipeline.best_params_,index=['Value']).T
-```
-
-
 # How about an example?
-
-## Intro data
-
-TODO: Talk about the data here
-
-## sci-kit learn
 
 # Wrapping up
 
 ## Python and you
 
 * If you already know R, check out Python
-* If you're ready for something beyond spreadsheets, Python is a great place to start
-* scikit-learn makes machine learning easy
+* If you don't know R, check out Python
+* If you're an actuary, check out Python
+* Jupyter is a great place to start experimenting
+* scikit-learn is worth exploring
 
 ## Thank you for your time!
 
@@ -283,12 +264,3 @@ TODO: Talk about the data here
 * https://www.python.org/
 * https://www.python.org/dev/peps/pep-0020/
 
-<!--
-Section 1 - 20 minutes
-Section 2 - 20 minutes
-Section 3 - 30 minutes
-Conclusion - 5 minutes
-Q & A - 15 minutes
--->
-
-<!-- 20 minutes -->
