@@ -1,4 +1,4 @@
-all:pres.html
+all:index.html
 
-pres.html:pres.Rmd ./css/revealOpts.css data $(data_rda)
+index.html:index.Rmd ./css/revealOpts.css data $(data_rda)
 	Rscript -e "rmarkdown::render('$<')"
