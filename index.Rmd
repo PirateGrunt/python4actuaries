@@ -193,15 +193,29 @@ Python ...
 
 ## Practicalities
 
-* Integrated Development Environment (IDE)
 * Version 2 or 3?
-* Sharing your work
+    * Used to be an issue, but not much anymore
+    * Version 2 is going away after a VERY long transition
+* Editor?
+    * Can just code at the console or copy and paste
+    * A few decent FLOSS choices: Spyder, Rodeo
+    * The best options are commercial
+* Can I e-mail a python file to a co-worker?
 
 ## Jupyter
 
+<div class='left'>
 ```{r}
 knitr::include_graphics('images/jupyter.png')
 ```
+</div
+
+<div class='right'>
+* Framework for interactive use of programming languages
+* Support for several different languages
+* Files - "notebooks" - may be shared with other users
+* Methodology is transparent and reproducible
+</div>
 
 # Intro scikit learn
 
@@ -232,15 +246,20 @@ knitr::include_graphics('images/jupyter.png')
 
 ## Pipelines
 
-Pipelines facilitate workflow.
-Pipelines are estimators too.
-Each step in a pipeline must be a transformer except for the final step.
-
 ![pipeline image](images/pipeline.PNG)
 
-## Grid Search
+* Preprocess (transform()) my data
+* Dimensionality reduction (PCA, cluster, etc.)
+* Steps may be cached to save memory
+* Awesome for grid search to shrink the potential parameter space
+* The final step of the pipeline is fit()
 
-* Explore performance of Pipeline across a predefined parameter search space while maintaining separability between training and test sets
+## Add it up
+
+1. Estimators are objects which have a common function interface
+2. I can transform my data to make it ready to fit
+3. I can easily swap between estimators knowing that they all have fit() and predict() methods
+4. I capture my workflow in a pipeline
 
 # How about an example?
 
@@ -263,4 +282,8 @@ Each step in a pipeline must be a transformer except for the final step.
 * http://scikit-learn.org/stable/
 * https://www.python.org/
 * https://www.python.org/dev/peps/pep-0020/
-
+* [Data Camp numpy cheat sheet](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf)
+* http://docs.python-requests.org/en/master
+* https://pandas.pydata.org/about.html
+* http://www.statsmodels.org/stable/index.html
+* http://ggplot.yhathq.com

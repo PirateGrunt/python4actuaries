@@ -597,13 +597,31 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section><section id="practicalities" class="slide level2">
 <h2>Practicalities</h2>
 <ul>
-<li>Integrated Development Environment (IDE)</li>
-<li>Version 2 or 3?</li>
-<li>Sharing your work</li>
+<li>Version 2 or 3?
+<ul>
+<li>Used to be an issue, but not much anymore</li>
+<li>Version 2 is going away after a VERY long transition</li>
+</ul></li>
+<li>Editor?
+<ul>
+<li>Can just code at the console or copy and paste</li>
+<li>A few decent FLOSS choices: Spyder, Rodeo</li>
+<li>The best options are commercial</li>
+</ul></li>
+<li>Can I e-mail a python file to a co-worker?</li>
 </ul>
 </section><section id="jupyter" class="slide level2">
 <h2>Jupyter</h2>
+<div class="left">
 <p><img src="images/jupyter.png" height="500px" /></p>
+</div>
+<ul>
+<li>Framework for interactive use of programming languages</li>
+<li>Support for several different languages</li>
+<li>Files - “notebooks” - may be shared with other users</li>
+<li>Methodology is transparent and reproducible
+</div></li>
+</ul>
 </section></section>
 <section><section id="intro-scikit-learn" class="titleslide slide level1"><h1>Intro scikit learn</h1></section><section id="scikit-learn" class="slide level2">
 <h2>scikit-learn</h2>
@@ -637,13 +655,22 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section><section id="pipelines" class="slide level2">
 <h2>Pipelines</h2>
-<p>Pipelines facilitate workflow. Pipelines are estimators too. Each step in a pipeline must be a transformer except for the final step.</p>
 <p><img src="images/pipeline.PNG" alt="pipeline image" /></p>
-</section><section id="grid-search" class="slide level2">
-<h2>Grid Search</h2>
 <ul>
-<li>Explore performance of Pipeline across a predefined parameter search space while maintaining separability between training and test sets</li>
+<li>Preprocess (transform()) my data</li>
+<li>Dimensionality reduction (PCA, cluster, etc.)</li>
+<li>Steps may be cached to save memory</li>
+<li>Awesome for grid search to shrink the potential parameter space</li>
+<li>The final step of the pipeline is fit()</li>
 </ul>
+</section><section id="add-it-up" class="slide level2">
+<h2>Add it up</h2>
+<ol type="1">
+<li>Estimators are objects which have a common function interface</li>
+<li>I can transform my data to make it ready to fit</li>
+<li>I can easily swap between estimators knowing that they all have fit() and predict() methods</li>
+<li>I capture my workflow in a pipeline</li>
+</ol>
 </section></section>
 <section><section id="how-about-an-example" class="titleslide slide level1"><h1>How about an example?</h1></section></section>
 <section><section id="wrapping-up" class="titleslide slide level1"><h1>Wrapping up</h1></section><section id="python-and-you" class="slide level2">
@@ -665,6 +692,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li><a href="http://scikit-learn.org/stable/" class="uri">http://scikit-learn.org/stable/</a></li>
 <li><a href="https://www.python.org/" class="uri">https://www.python.org/</a></li>
 <li><a href="https://www.python.org/dev/peps/pep-0020/" class="uri">https://www.python.org/dev/peps/pep-0020/</a></li>
+<li><a href="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Numpy_Python_Cheat_Sheet.pdf">Data Camp numpy cheat sheet</a></li>
+<li><a href="http://docs.python-requests.org/en/master" class="uri">http://docs.python-requests.org/en/master</a></li>
+<li><a href="https://pandas.pydata.org/about.html" class="uri">https://pandas.pydata.org/about.html</a></li>
+<li><a href="http://www.statsmodels.org/stable/index.html" class="uri">http://www.statsmodels.org/stable/index.html</a></li>
+<li><a href="http://ggplot.yhathq.com" class="uri">http://ggplot.yhathq.com</a></li>
 </ul>
 </section></section>
     </div>
