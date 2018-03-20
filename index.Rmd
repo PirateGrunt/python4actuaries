@@ -90,13 +90,13 @@ knitr::include_graphics('images/pandas.png')
 
 <div class='left'>
 ```{r}
-knitr::include_graphics('images/matplotlib.png')
+knitr::include_graphics('images/matplotlib.PNG')
 ```
 </div>
 
 <div class='right'>
 ```{r }
-knitr::include_graphics('images/plotly.png')
+knitr::include_graphics('images/plotly.PNG')
 ```
 </div>
 
@@ -104,33 +104,33 @@ knitr::include_graphics('images/plotly.png')
 
 <div class='left'>
 ```{r out.width='500px', out.height='450px'}
-knitr::include_graphics('images/beautiful_soup.png')
+knitr::include_graphics('images/beautiful_soup.PNG')
 ```
 </div>
 
 <div class='right'>
 ```{r out.width='500px', out.height='450px'}
-knitr::include_graphics('images/requests.png')
+knitr::include_graphics('images/requests.PNG')
 ```
 </div>
 
 ## Other cool web stuff
 
 ```{r out.height='600px'}
-knitr::include_graphics('images/django.png')
+knitr::include_graphics('images/django.PNG')
 ```
 
 ## Data science
 
 <div class='left'>
 ```{r}
-knitr::include_graphics('images/statsmodels.png')
+knitr::include_graphics('images/statsmodels.PNG')
 ```
 </div>
 
 <div class='right'>
 ```{r}
-knitr::include_graphics('images/scikit-learn.png')
+knitr::include_graphics('images/scikit-learn.PNG')
 ```
 </div>
 
@@ -236,7 +236,7 @@ Pipelines facilitate workflow.
 Pipelines are estimators too.
 Each step in a pipeline must be a transformer except for the final step.
 
-![pipeline image](images/pipeline.png)
+![pipeline image](images/pipeline.PNG)
 
 ## Grid Search
 
